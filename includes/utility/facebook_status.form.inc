@@ -74,7 +74,7 @@ function theme_facebook_status_form_display($variables) {
       $converse = ' facebook-status-conversation-form';
     }
     $output .= '<div class="clear-block facebook-status-update facebook-status-update-main facebook-status-form-type-' . $type . $self . $converse . '">' .
-      drupal_get_form('facebook_status_box', $recipient, $type) . '</div>';
+      drupal_render(drupal_get_form('facebook_status_box', $recipient, $type)) . '</div>';
   }
   if ($conversation) {
     $args = explode(',', arg(2));

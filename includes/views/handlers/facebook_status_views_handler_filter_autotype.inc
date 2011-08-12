@@ -18,5 +18,6 @@ class facebook_status_views_handler_filter_autotype extends views_handler_filter
     $this->query->add_where($this->options['group'], db_and()
       ->condition("{$this->table_alias}.recipient", $recipient_id)
       ->condition("{$this->table_alias}.type", $type)   
+	  );
   }
 }

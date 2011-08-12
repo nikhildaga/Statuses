@@ -330,7 +330,7 @@ function facebook_status_user_view($account, $view_mode) {
     }
     $account->content['facebook_status'] += array(
       '#type' => 'user_profile_category',
-      '#attributes' => array('class' => 'facebook-status-profile-category'),
+      '#attributes' => array('class' => array('facebook-status-profile-category')),
       '#weight' => -5,
       '#title' => t('Messages'),
     );
@@ -338,7 +338,7 @@ function facebook_status_user_view($account, $view_mode) {
       '#type' => 'user_profile_item',
       '#title' => '',
       '#value' => $value,
-      '#attributes' => array('class' => 'facebook-status profile'),
+      '#attributes' => array('class' => array('facebook-status profile')),
     );
   }
 }
@@ -382,7 +382,7 @@ function facebook_status_link($type, $status) {
     $links['edit'] = array(
       'href' => 'statuses/' . $status->sid . '/edit',
       'title' => t('Edit'),
-      'attributes' => array('class' => 'facebook-status-edit facebook-status-action-link'),
+      'attributes' => array('class' => array('facebook-status-edit', 'facebook-status-action-link')),
       'query' => array('destination' => $_GET['q']),
       'weight' => -5,
     );
@@ -391,7 +391,7 @@ function facebook_status_link($type, $status) {
     $links['delete'] = array(
       'href' => 'statuses/' . $status->sid . '/delete',
       'title' => t('Delete'),
-      'attributes' => array('class' => 'facebook-status-delete facebook-status-action-link'),
+      'attributes' => array('class' => array('facebook-status-delete', 'facebook-status-action-link')),
       'query' => array('destination' => $_GET['q']),
       'weight' => -4,
     );
@@ -417,7 +417,7 @@ function facebook_status_link($type, $status) {
       $links['respond'] = array(
         'href' => 'statuses/conversation/' . $status->sender . ',' . $second_uid,
         'title' => $title,
-        'attributes' => array('class' => 'facebook-status-respond facebook-status-action-link'),
+        'attributes' => array('class' => array('facebook-status-respond', 'facebook-status-action-link')),
         'weight' => 3,
       );
     }
@@ -430,7 +430,7 @@ function facebook_status_link($type, $status) {
         'sid' => $status->sid,
         'destination' => $_GET['q'],
       ),
-      'attributes' => array('class' => 'facebook-status-share facebook-status-action-link'),
+      'attributes' => array('class' => array('facebook-status-share', 'facebook-status-action-link')),
       'weight' => 5,
     );
   }

@@ -21,7 +21,7 @@ class facebook_status_views_handler_field_respond extends views_handler_field {
     $sender = user_load($values->{$this->field_alias});
     $type = $values->{$this->aliases['type']};
     drupal_add_css(drupal_get_path('module', 'facebook_status') . '/resources/facebook_status.css');
-    $options = array('attributes' => array('class' => 'facebook-status-respond'));
+    $options = array('attributes' => array('class' => array('facebook-status-respond')));
     if ($type == 'user' && $sender->uid != $recipient->uid && facebook_status_user_access('view_stream', $recipient) && facebook_status_user_access('view_stream', $sender)) {
       $title = t('View conversation');
       if ($recipient->uid == $user->uid) {

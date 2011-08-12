@@ -57,7 +57,7 @@ function template_preprocess_facebook_status_item(&$vars) {
       $vars['meta'] = t('on !entity', array('!entity' => $vars['recipient_link']));
     }
     if ($options['links']) {
-      $vars['links'] = !empty($status->links) ? theme('links', array('links' => $status->links, 'attributes' => array('class' => 'links inline'))) : '';
+      $vars['links'] = !empty($status->links) ? theme('links', array('links' => $status->links, 'attributes' => array('class' => array('links', 'inline')))) : '';
     }
   }
   $vars['status_url'] = url('statuses/'. $status->sid, array('absolute' => TRUE));

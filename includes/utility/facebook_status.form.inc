@@ -201,7 +201,7 @@ function facebook_status_box($form, &$form_state, $recipient, $type = 'user') {
     '#type' => 'textarea',
     '#rows' => variable_get('facebook_status_box_rows', 2),
     '#default_value' => $default,
-    '#attributes' => array('class' => 'facebook-status-text facebook-status-text-main'),
+    '#attributes' => array('class' => array('facebook-status-text', 'facebook-status-text-main')),
     '#resizable' => FALSE,
     '#weight' => -40,
     '#prefix' => '<div style="clear: both;">',
@@ -211,7 +211,7 @@ function facebook_status_box($form, &$form_state, $recipient, $type = 'user') {
     '#type' => 'submit',
     '#value' => t('Share'),
     '#submit' => array('facebook_status_box_submit'),
-    '#attributes' => array('class' => 'facebook-status-submit'),
+    '#attributes' => array('class' => array('facebook-status-submit')),
     '#weight' => -25,
   );
   if (variable_get('facebook_status_ahah', 1)) {
@@ -243,7 +243,7 @@ function facebook_status_box($form, &$form_state, $recipient, $type = 'user') {
   );
   if (arg(0) == 'statuses' && arg(1) == 'share' && !empty($_GET['destination']) && $_GET['destination'] != $_GET['q']) {
     $form['back'] = array(
-      '#markup' => l(t('Back'), $_GET['destination'], array('attributes' => array('class' => 'facebook-status-back'))),
+      '#markup' => l(t('Back'), $_GET['destination'], array('attributes' => array('class' => array('facebook-status-back')))),
       '#weight' => 20,
     );
   }

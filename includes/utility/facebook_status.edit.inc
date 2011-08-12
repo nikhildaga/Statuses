@@ -31,7 +31,7 @@ function facebook_status_edit($form, &$form_state, $status) {
     '#type' => 'textarea',
     '#rows' => variable_get('facebook_status_box_rows', 2),
     '#default_value' => $status->message,
-    '#attributes' => array('class' => 'facebook-status-text'),
+    '#attributes' => array('class' => array('facebook-status-text')),
     '#resizable' => FALSE,
     '#weight' => -40,
   );
@@ -49,7 +49,7 @@ function facebook_status_edit($form, &$form_state, $status) {
   $form['fbss-submit'] = array(
     '#type' => 'submit',
     '#value' => t('Save'),
-    '#attributes' => array('class' => 'facebook-status-submit'),
+    '#attributes' => array('class' => array('facebook-status-submit')),
     '#suffix' => '</div>',
     '#weight' => -25,
   );

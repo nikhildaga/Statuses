@@ -408,7 +408,7 @@ function theme_fbss_comments_form_display($variables) {
     $output = '';
     if ($delay_load_form && !fbss_comments_count_comments($sid, TRUE)) {
       $output = '<span class="fbss-comments-show-comment-form" id="fbss-comments-toggle-' . $sid . '">' .
-        l(t('Comment'), 'statuses/' . $sid, array('attributes' => array('class' => 'fbss-comments-show-comment-form-link')))
+        l(t('Comment'), 'statuses/' . $sid, array('attributes' => array('class' => array('fbss-comments-show-comment-form-link'))))
         . '</span>';
       return $output . '<div class="fbss-comments-hide fbss-comments-form">' . drupal_get_form('fbss_comments_box_' . $sid, $sid, $delay_load_comments) . '</div>';
     }
@@ -760,13 +760,13 @@ function fbss_comments_box(&$form_state, $sid, $delay_load = TRUE, $hide_submit 
   $form['comments'] = array('#value' => theme('fbss_comments_items', array('comments' => $comments, 'delay_load' => $delay_load, 'destination' => $form['#qu'])));
   if (count($comments) && $hide_submit) {
     $form['start-hide'] = array('#value' => '<div class="fbss-comments-show-comment-form-inner" id="fbss-comments-inner-toggle-' . $sid . '">' .
-      l(t('Comment'), 'statuses/' . $sid, array('attributes' => array('class' => 'fbss-comments-show-comment-inner-form-link')))
+      l(t('Comment'), 'statuses/' . $sid, array('attributes' => array('class' => array('fbss-comments-show-comment-inner-form-link'))))
       . '</div><div class="fbss-comments-hide fbss-comments-replace-' . $sid . '-inner">');
   }
   $form['status-comment'] = array(
     '#type' => 'textarea',
     '#rows' => 1,
-    '#attributes' => array('class' => 'fbss-comments-textarea'),
+    '#attributes' => array('class' => array('fbss-comments-textarea')),
     '#resizable' => FALSE,
   );
   if (count($comments) && $hide_submit) {
@@ -776,7 +776,7 @@ function fbss_comments_box(&$form_state, $sid, $delay_load = TRUE, $hide_submit 
   $form['save-' . $sid] = array(
     '#type' => 'submit',
     '#value' => t('Comment'),
-    '#attributes' => array('class' => 'fbss-comments-submit'),
+    '#attributes' => array('class' => array('fbss-comments-submit')),
     '#prefix' => '<div class="' . ($hide_submit ? 'fbss-comments-hide' : '') . ' fbss-comments-replace-' . $sid . '-inner clearfix">',
     '#suffix' => '<div class="clearfix"></div></div>',
     '#submit' => array('fbss_comments_box_submit'),
@@ -793,7 +793,7 @@ function fbss_comments_box(&$form_state, $sid, $delay_load = TRUE, $hide_submit 
   if (!empty($form_state['fbss_comments']['sid'])) {
     $form['#sid'] = $form_state['fbss_comments']['sid'];
   }
-  $form['#attributes'] = array('class' => 'fbss-comments-comment-form');
+  $form['#attributes'] = array('class' => array('fbss-comments-comment-form'));
   return $form;
 }
 

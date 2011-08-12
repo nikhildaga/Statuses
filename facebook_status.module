@@ -1,6 +1,6 @@
 <?php
 
-/*
+/**
  * @file
  *   Creates context-sensitive social streams.
  */
